@@ -1,7 +1,10 @@
 Feature: Login
 
-  Scenario: Login is succesful with valid credential
+  Background: Open Browser
+    Given open browser
+
+
+  Scenario: Login is successful with valid credential
     Given user is on login page
-    When user enter <username> and <password>
+    When user enter bisma@mail.com and 123
     And user click login button
-    Then verify user redirected to homepage

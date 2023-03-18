@@ -17,7 +17,7 @@ public class Homepage {
     @FindBy(xpath = "//input[contains(@name, 'btnLogin')]")
     WebElement btnLogin;
 
-    public void login(WebDriver driver){
+    public Homepage(WebDriver driver){
         this.driver = driver;
         //This initElements method will create all WebElements
         PageFactory.initElements(driver, this);
