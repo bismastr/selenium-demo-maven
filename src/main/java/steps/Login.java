@@ -13,28 +13,26 @@ public class Login {
 
 
     Homepage home;
+    Base base;
 
-
-
-
+    public Login(Base base) {
+        this.base = base;
+        home = new Homepage(base);
+    }
 
     @Given("user is on login page")
     public void userIsOnLoginPage() {
-        driver.get("http://demo.guru99.com/V4/");
+        base.getDriver().get("http://demo.guru99.com/V4/");
     }
 
     @When("user enter {} and {}")
     public void userEnterAnd(String email, String password) {
-        home = new Homepage(driver);
-
         home.setUsername(email);
         home.setPassword(password);
     }
 
     @And("user click login button")
     public void userClickLoginButton() {
-        home = new Homepage(driver);
-
         home.clickBtnLogin();
     }
 

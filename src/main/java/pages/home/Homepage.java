@@ -4,9 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import steps.Base;
 
 public class Homepage {
-    WebDriver driver;
+
+    public Homepage(Base base){
+        PageFactory.initElements(base.getDriver(), this);
+    }
 
     @FindBy(xpath = "//input[contains(@name, 'uid')]")
     WebElement inptUserID;
@@ -16,12 +20,6 @@ public class Homepage {
 
     @FindBy(xpath = "//input[contains(@name, 'btnLogin')]")
     WebElement btnLogin;
-
-    public Homepage(WebDriver driver){
-        this.driver = driver;
-        //This initElements method will create all WebElements
-        PageFactory.initElements(driver, this);
-    }
 
     public void setUsername(String username){
         inptUserID.sendKeys(username);
